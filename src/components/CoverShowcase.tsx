@@ -55,15 +55,12 @@ export default function CoverShowcase() {
 
         <div id="cover-showcase" className="grid md:grid-cols-3 gap-4 md:gap-6">
           {covers.map((c, i) => (
-            <div key={i} className="cover-card relative rounded-2xl overflow-hidden bg-white border border-stone-200">
-              <div className="aspect-[4/3] sm:aspect-[3/4] md:aspect-auto md:h-[420px] relative overflow-hidden">
-                <img src={c.src} alt={c.label} className="w-full h-full object-contain bg-white" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                  <span className="text-amber-400 text-xs font-semibold tracking-wider uppercase">{c.year} &middot; {c.papers} papers</span>
-                  <p className="text-white text-sm md:text-base font-semibold leading-snug mt-1 line-clamp-3">{c.highlight}</p>
-                  <p className="text-white/70 text-xs mt-2">{c.label}</p>
-                </div>
+            <div key={i} className="cover-card bg-white rounded-2xl border border-stone-200 overflow-hidden">
+              <img src={c.src} alt={c.label} className="w-full h-auto" />
+              <div className="p-4 md:p-5">
+                <span className="text-amber-700 text-xs font-semibold tracking-wider uppercase">{c.year} &middot; {c.papers} papers</span>
+                <p className="text-stone-800 text-sm md:text-base font-semibold leading-snug mt-1">{c.highlight}</p>
+                <p className="text-stone-500 text-xs mt-1.5">{c.label}</p>
               </div>
             </div>
           ))}
