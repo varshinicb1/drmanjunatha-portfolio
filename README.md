@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dr. Manjunatha C — Academic Portfolio
+
+Personal academic portfolio website for **Dr. Manjunatha C**, Associate Professor at RV College of Engineering, Bengaluru.
+
+Built with Next.js 16 + TypeScript + Tailwind v4, deployed to Firebase Hosting as a static export.
+
+## Tech Stack
+
+- **Framework:** Next.js 16.2.9 (static export via `output: 'export'`)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animations:** GSAP (ScrollTrigger) + Lenis
+- **3D Background:** Three.js (molecular structure)
+- **Deployment:** Firebase Hosting
+- **Build:** webpack (Turbopack unavailable on win32/x64)
+
+## Live Site
+
+https://drmanjunatha-cv-portfolio.web.app
 
 ## Getting Started
 
-First, run the development server:
+```powershell
+# Install dependencies
+npm install
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Development server
+npx next dev --webpack
+
+# Production build (static export to out/)
+npx next build --webpack
+
+# Deploy to Firebase
+npx firebase deploy --only hosting
+
+# Full cycle
+npx next build --webpack && npx firebase deploy --only hosting
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    page.tsx          # Main page (3 pillars composition)
+    globals.css       # Design system, fonts, theme
+    layout.tsx        # Root layout with SEO metadata
+  components/
+    Navbar.tsx        # Sticky navbar with hamburger menu
+    Preloader.tsx     # GSAP entrance animation
+    SmoothScroll.tsx  # Lenis smooth scroll wrapper
+    NanoBackground.tsx # Three.js molecular background
+    Hero.tsx          # 50/50 split hero with about cards
+    SectionPillar.tsx # Gradient amber section banner
+    Experience.tsx    # Career accordion with logos
+    Education.tsx     # Timeline with university logos
+    AcademicActivities.tsx # Conferences, workshops, FDPs
+    CoverShowcase.tsx # Full-width journal cover panels
+    Recommendations.tsx # 6 illustrated SVG research cards
+    ResearchGuidance.tsx # PhD/M.Tech/B.E. student supervision
+    Publications.tsx  # Full pubs with logos, patents, Q-badges
+    Projects.tsx      # Funded + guided projects with search
+    Awards.tsx        # Awards and recognitions
+    AdminLeadership.tsx # Leadership, expertise, memberships
+    Contact.tsx       # Contact cards, location, recognition
+    GetInTouch.tsx    # CTA banner with email buttons
+    Footer.tsx        # Footer with scroll-to-top
+  data/
+    profile.ts        # All professor data (700+ lines)
+  utils/
+    logos.ts          # Institution → logo path mapping
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Section Order (3 Pillars)
 
-## Learn More
+1. **01 Academics:** Education → Experience → Academic Activities
+2. **02 Research:** Cover Showcase → Research Areas → Research Guidance → Publications → Projects → Awards
+3. **03 Admin & Leadership:** Admin Leadership (leadership, technical expertise, memberships) → Contact → Get In Touch
 
-To learn more about Next.js, take a look at the following resources:
+## Design System
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Fonts:** Bebas Neue (headings), Montserrat (body)
+- **Background:** Light `#f8f8f8` / white alternating sections
+- **Accent:** Amber/gold (`amber-600`, `amber-400`)
+- **Cards:** White with `border-gray-200`, hover: `border-amber-200`
+- **Animations:** GSAP ScrollTrigger + Lenis smooth scroll
+- **Icons:** Custom illustrated SVGs for research areas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Data Sources
 
-## Deploy on Vercel
+- `CV-Manjunatha Channegowda-07-05-2026-FINAL.pdf` — 46-page CV
+- `Dr_Manjunatha_Industry_Profile.pdf` — 5-page industry profile
+- Journal covers in `public/covers/`
+- Patent certificates in `public/patents/`
+- 56 journal logos in `public/journal-logos/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Known Issues
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- SWC native binary corrupted on win32 — WASM fallback used automatically
+- Must use `--webpack` flag (no Turbopack on Windows x64)
+- Firebase cache: HTML `no-cache`, assets 1-year immutable
+- Hard refresh (Ctrl+F5) required after deploy
+
+## GitHub
+
+https://github.com/varshinicb1/drmanjunatha-portfolio
