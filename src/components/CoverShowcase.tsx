@@ -55,9 +55,9 @@ export default function CoverShowcase() {
 
         <div id="cover-showcase" className="grid md:grid-cols-3 gap-4 md:gap-6">
           {covers.map((c, i) => (
-            <div key={i} className="cover-card group relative rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-500">
+            <div key={i} className="cover-card relative rounded-2xl overflow-hidden bg-white border border-stone-200">
               <div className="aspect-[4/3] sm:aspect-[3/4] md:aspect-auto md:h-[420px] relative overflow-hidden">
-                <img src={c.src} alt={c.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src={c.src} alt={c.label} className="w-full h-full object-contain bg-white" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                   <span className="text-amber-400 text-xs font-semibold tracking-wider uppercase">{c.year} &middot; {c.papers} papers</span>
