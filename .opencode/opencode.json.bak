@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcpServers": {
+    "threejs": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-threejs",
+        "--stdio"
+      ]
+    },
+    "animotion": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "animotion-mcp"
+      ]
+    },
+    "r3f-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "r3f-mcp-server"
+      ]
+    }
+  }
+}
