@@ -17,7 +17,7 @@ export const profile = {
   dateOfBirth: "20 July 1981",
   nationality: "Indian",
   gender: "Male",
-  image: "/new-pic.webp",
+  image: "/new-pic.png",
   photo: "/hero-photo.jpg",
   teachingExperience: "23 Years (RVCE 18 Years)",
   researchExperience: "18 Years",

@@ -76,9 +76,9 @@ export default function Hero() {
 
         <div id="hero-image" className="w-full md:w-1/2 min-h-[30vh] md:min-h-[70vh] flex items-center justify-center p-6 md:p-10">
           <picture>
-            <source srcSet={profile.image} type="image/webp" />
-            <source srcSet={profile.photo} type="image/png" />
-            <img src={profile.photo} className="w-full h-full max-h-[50vh] md:max-h-[60vh] object-contain rounded-2xl" alt={`Dr. ${profile.fullName} — Academic portrait`} />
+            <source srcSet="/new-pic.webp" type="image/webp" />
+            <source srcSet={profile.image} type="image/png" />
+            <img src={profile.image} className="w-full h-full max-h-[50vh] md:max-h-[60vh] object-contain rounded-2xl" alt={`Dr. ${profile.fullName} — Academic portrait`} />
           </picture>
         </div>
       </section>
@@ -121,9 +121,9 @@ export default function Hero() {
           </div>
           <div className="bg-white rounded-xl p-4 sm:p-6 border border-stone-200 shadow-sm md:col-span-2 flex items-center gap-4">
             <picture>
-              <source srcSet={profile.image} type="image/webp" />
-              <source srcSet={profile.photo} type="image/png" />
-              <img src={profile.photo} className="w-14 h-14 rounded-full object-cover border-2 border-amber-300 flex-shrink-0" alt={`${profile.fullName} profile photo`} />
+              <source srcSet="/new-pic.webp" type="image/webp" />
+              <source srcSet={profile.image} type="image/png" />
+              <img src={profile.image} className="w-14 h-14 rounded-full object-cover border-2 border-amber-300 flex-shrink-0" alt={`${profile.fullName} profile photo`} />
             </picture>
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-stone-900">{profile.fullName}</p>
