@@ -74,11 +74,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div id="hero-image" className="w-full md:w-1/2 min-h-[40vh] md:min-h-screen flex items-end">
+        <div id="hero-image" className="w-full md:w-1/2 min-h-[30vh] md:min-h-[70vh] flex items-center justify-center p-6 md:p-10">
           <picture>
             <source srcSet={profile.image} type="image/webp" />
             <source srcSet={profile.photo} type="image/png" />
-            <img src={profile.photo} className="w-full h-full object-cover" alt={`Dr. ${profile.fullName} — Academic portrait`} />
+            <img src={profile.photo} className="w-full h-full max-h-[50vh] md:max-h-[60vh] object-contain rounded-2xl" alt={`Dr. ${profile.fullName} — Academic portrait`} />
           </picture>
         </div>
       </section>
