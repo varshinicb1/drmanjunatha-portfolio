@@ -1,16 +1,19 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { profile } from '@/data/profile';
 
 gsap.registerPlugin(ScrollTrigger);
 
+function fmtViews(n: number): string {
+  if (n >= 1000) return (n / 1000).toFixed(n >= 10000 ? 0 : 1) + 'K';
+  return String(n);
+}
+
 export default function YouTubeVideos() {
   const ref = useRef(null);
-  const [playing, setPlaying] = useState<string | null>(null);
-  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -27,8 +30,6 @@ export default function YouTubeVideos() {
     return () => ctx.revert();
   }, []);
 
-  const videos = showAll ? profile.youtubeVideos : profile.youtubeVideos.slice(0, 12);
-
   return (
     <section ref={ref} className="w-full bg-stone-100 py-10 sm:py-14 md:py-20" id="youtube">
       <div className="max-w-6xl mx-auto px-6">
@@ -38,52 +39,28 @@ export default function YouTubeVideos() {
           <p className="text-stone-700 mt-3 max-w-2xl">Lecture series, lab demonstrations, and research explanations from Dr. Manjunatha C.</p>
         </div>
 
-        <div id="yt-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {videos.map((v) => (
-            <div
+        <div id="yt-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {profile.youtubeVideos.map((v) => (
+            <a
               key={v.id}
-              className="yt-card bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-amber-300 transition-colors"
+              href={`https://www.youtube.com/watch?v=${v.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="yt-card block bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-amber-300 transition-colors"
             >
-              <div className="relative aspect-video bg-black">
-                {playing === v.id ? (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`}
-                    className="absolute inset-0 w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    allowFullScreen
-                    title={v.title}
-                  />
-                ) : (
-                  <>
-                    <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} className="w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                      <button onClick={() => setPlaying(v.id)} className="w-14 h-14 bg-amber-600 hover:bg-amber-500 rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer">
-                        <svg className="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                      </button>
-                    </div>
-                    <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">{v.duration}</span>
-                  </>
-                )}
+              <div className="relative aspect-video bg-stone-200">
+                <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} className="w-full h-full object-cover" loading="lazy" />
+                <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">{v.duration}</span>
               </div>
               <div className="p-3">
                 <p className="text-sm text-stone-800 leading-snug line-clamp-2">{v.title}</p>
+                <p className="text-xs text-stone-500 mt-1.5">{fmtViews(v.views)} views</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
-        {profile.youtubeVideos.length > 12 && (
-          <div className="mt-8 text-center">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="text-sm text-amber-700 hover:text-amber-800 font-semibold bg-white px-6 py-3 rounded-xl border border-amber-200 hover:bg-amber-50 transition-all"
-            >
-              {showAll ? 'Show Less' : `Show All ${profile.youtubeVideos.length} Videos`}
-            </button>
-          </div>
-        )}
-
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <a
             href="https://www.youtube.com/@DrMANJUNATHACHANNEGOWDA/videos"
             target="_blank"
