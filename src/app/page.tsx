@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import Education from '@/components/Education';
 import Experience from '@/components/Experience';
 import AcademicActivities from '@/components/AcademicActivities';
+import YouTubeVideos from '@/components/YouTubeVideos';
 import Recommendations from '@/components/Recommendations';
 import ResearchCollaborations from '@/components/ResearchCollaborations';
 import ResearchGuidance from '@/components/ResearchGuidance';
@@ -41,6 +42,8 @@ export default function Home() {
           <Experience />
           <div className="section-divider" />
           <AcademicActivities />
+          <div className="section-divider" />
+          <YouTubeVideos />
           <div className="section-divider" />
 
           {/* ─── Pillar 2: Research ─── */}
