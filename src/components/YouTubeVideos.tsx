@@ -44,9 +44,10 @@ export default function YouTubeVideos() {
             <div className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
               <button onClick={() => setPlaying(null)} className="absolute top-3 right-3 z-10 w-10 h-10 bg-black/60 rounded-full text-white flex items-center justify-center text-lg hover:bg-black/80">&times;</button>
               <iframe
+                key={playing}
                 src={`https://www.youtube.com/embed/${playing}?autoplay=1&rel=0`}
                 className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                 allowFullScreen
                 title="YouTube video player"
               />
@@ -68,8 +69,8 @@ export default function YouTubeVideos() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-14 h-14 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <div className="w-14 h-14 bg-amber-600 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
                   </div>
                 </div>
