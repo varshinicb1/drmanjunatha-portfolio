@@ -589,6 +589,78 @@ export const profile = {
     },
   ],
 
+  researchCollaborations: {
+    overseas: [
+      {
+        country: "Japan",
+        collaborator: "Prof. Dr. Ajit Khosla",
+        affiliation: "Department of Mechanical Systems Engineering, Yamagata University",
+        address: "4-3-16 Jonan, Yonezawa, Japan 992-8510",
+        email: "khosla@yz.yamagata-u.ac.jp",
+        phone: "+81-080-9074-4765",
+        note: "Founding Editor in Chief: ECS Sensors Plus, Co-Editor in Chief: ECS Advances, Editor: The Electrochemical Society Journals (JES and JSS), Conference Chair: ICTSGS",
+      },
+      {
+        country: "USA",
+        collaborator: "Dr. Praveen Sekhar",
+        affiliation: "Associate Professor, School of Engineering and Computer Science, Washington State University Vancouver",
+        address: "14204 NE Salmon Creek Avenue, Vancouver, WA 98642-9600",
+        email: "praveen.sekhar@wsu.edu",
+        phone: "(360) 546-9186",
+      },
+      {
+        country: "USA",
+        collaborator: "Dr. Ajeet Kaushik",
+        affiliation: "Assistant Professor of Chemistry (Among Top 2% cited Experts), Florida Polytechnic University",
+        address: "Florida International University, National Physical Laboratory",
+        email: "akaushik@floridapoly.edu",
+        phone: "863-874-8745",
+      },
+      {
+        country: "Canada",
+        collaborator: "Dr. Mohtada Sadrzadeh, PhD, PEng",
+        affiliation: "Professor, Faculty of Engineering, Mechanical Engineering Dept, The University of Alberta",
+        address: "Canada",
+        email: "sadrzade@ualberta.ca",
+      },
+      {
+        country: "Thailand",
+        collaborator: "Dr. Itthipon Jeerapan",
+        affiliation: "Division of Physical Science, Faculty of Science, Prince of Songkla University",
+        address: "Hat Yai, Songkhla 90112, Thailand",
+        email: "itthipon.j@psu.ac.th",
+      },
+      {
+        country: "Taiwan",
+        collaborator: "Dr. Hung, I-Ming",
+        affiliation: "Professor, Department of Chemical Engineering and Materials Science, Yuan Ze University",
+        address: "Hierarchical Green-Energy Materials Research Center, National Cheng Kung University, Tainan 70101, Taiwan",
+      },
+      {
+        country: "Thailand",
+        collaborator: "Vishal Chaudary",
+        affiliation: "Lecturer, Complexities & Physics of Biological Systems",
+        address: "University of Delhi, India",
+      },
+      {
+        country: "Taiwan",
+        collaborator: "Prof. Wei-Fan Kuan",
+        affiliation: "Sustainable and Energy Science Lab",
+        address: "11F No. 259 Wen-Hua 1 Road, Guishan Dist., Taoyuan City, Taiwan 33302",
+        email: "weifankuan@mail.cgu.edu.tw",
+        phone: "+886-3-2118800 ext 5287",
+      },
+    ],
+    national: [
+      "Indian Institute of Science (IISc), Bengaluru",
+      "Jawaharlal Nehru Centre for Advanced Scientific Research (JNCASR), Bengaluru",
+      "National Institute of Technology Karnataka (NITK), Surathkal",
+      "Visvesvaraya Technological University (VTU), Belagavi",
+      "University of Mysore, Mysuru",
+      "Bangalore University, Bengaluru",
+    ],
+  },
+
   internationalConferences: [
     { year: 2012, title: "Morphological Evolution of Cadmium Silicate Nanobelts", event: "ICONSAT-2012, ARCI Hyderabad" },
     { year: 2012, title: "Characterization, luminescence studies of Dy3+ doped CdSiO3 nanophosphor", event: "ICLA-2012, Hyderabad" },

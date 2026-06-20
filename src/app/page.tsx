@@ -8,6 +8,7 @@ import Education from '@/components/Education';
 import Experience from '@/components/Experience';
 import AcademicActivities from '@/components/AcademicActivities';
 import Recommendations from '@/components/Recommendations';
+import ResearchCollaborations from '@/components/ResearchCollaborations';
 import ResearchGuidance from '@/components/ResearchGuidance';
 import Publications from '@/components/Publications';
 
@@ -45,6 +46,8 @@ export default function Home() {
           {/* ─── Pillar 2: Research ─── */}
           <SectionPillar num="02" id="research" title="Research" subtitle="Research areas, publications, patents, funded projects, guided projects, and awards." />
           <CoverShowcase />
+          <div className="section-divider" />
+          <ResearchCollaborations />
           <div className="section-divider" />
           <Recommendations />
           <div className="section-divider" />
