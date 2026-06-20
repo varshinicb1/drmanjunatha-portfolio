@@ -13,6 +13,7 @@ export default function AcademicActivities() {
   const [showNat, setShowNat] = useState(false);
   const [showWks, setShowWks] = useState(false);
   const [showFdp, setShowFdp] = useState(false);
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -58,9 +59,9 @@ export default function AcademicActivities() {
                 {profile.invitedTalks[0].gallery && (
                   <div className="flex gap-2">
                     {profile.invitedTalks[0].gallery.map((src, gi) => (
-                      <a key={gi} href={src} target="_blank" rel="noopener noreferrer">
-                        <img src={src} alt={`Gallery photo ${gi + 1}`} className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover border border-stone-200 shadow-sm" />
-                      </a>
+                      <button key={gi} onClick={() => setLightbox(src)} className="block p-0 border-0 bg-transparent cursor-pointer">
+                        <img src={src} alt={`Gallery photo ${gi + 1}`} className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover border border-stone-200 shadow-sm hover:opacity-80 transition-opacity" />
+                      </button>
                     ))}
                   </div>
                 )}
@@ -180,6 +181,15 @@ export default function AcademicActivities() {
           </div>
         </div>
       </div>
+
+      {lightbox && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
+          <div className="relative max-w-3xl w-full bg-white rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setLightbox(null)} className="absolute top-3 right-3 z-10 w-10 h-10 bg-black/60 rounded-full text-white flex items-center justify-center text-xl hover:bg-black/80">&times;</button>
+            <img src={lightbox} alt="Gallery photo" className="w-full h-auto max-h-[80vh] object-contain bg-white" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
