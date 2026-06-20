@@ -51,9 +51,20 @@ export default function AcademicActivities() {
               Invited Talks
             </h3>
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <a href={profile.invitedTalks[0].url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-                <img src={profile.invitedTalks[0].image} alt="Manjunatha C - World Nano 2019 Speaker" className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl object-cover border border-stone-200 shadow-sm" />
-              </a>
+              <div className="flex flex-col gap-3">
+                <a href={profile.invitedTalks[0].url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+                  <img src={profile.invitedTalks[0].image} alt="Manjunatha C - World Nano 2019 Speaker" className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl object-cover border border-stone-200 shadow-sm" />
+                </a>
+                {profile.invitedTalks[0].gallery && (
+                  <div className="flex gap-2">
+                    {profile.invitedTalks[0].gallery.map((src, gi) => (
+                      <a key={gi} href={src} target="_blank" rel="noopener noreferrer">
+                        <img src={src} alt={`Gallery photo ${gi + 1}`} className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover border border-stone-200 shadow-sm" />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
               <div>
                 <span className="text-xs font-semibold tracking-wider uppercase text-amber-700">{profile.invitedTalks[0].role} &middot; {profile.invitedTalks[0].year}</span>
                 <p className="text-base font-semibold text-stone-900 mt-1">{profile.invitedTalks[0].title}</p>

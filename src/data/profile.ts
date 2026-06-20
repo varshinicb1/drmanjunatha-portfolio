@@ -585,6 +585,7 @@ export const profile = {
       event: "World Nanotechnology Conference | Dubai, UAE",
       role: "Invited Speaker",
       image: "/world-nano-speaker.jpg",
+      gallery: ["/world-nano-gallery-1.jpg", "/world-nano-gallery-2.jpg"],
       url: "https://worldnanotechnologyconference.com/speaker/manjunatha-c",
     },
   ],
