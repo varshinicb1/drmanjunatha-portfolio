@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
+import { profile } from "@/data/profile";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -65,16 +66,26 @@ export default function RootLayout({
     url: siteUrl,
     image: `${siteUrl}/new-pic.png`,
     sameAs: [
-      "https://scholar.google.com/citations?user=j13BsSQAAAAJ",
+      profile.googleScholar,
       "https://www.scopus.com/authid/detail.uri?authorId=36940626600",
-      "https://orcid.org/0000-0001-5084-6851",
+      `https://orcid.org/${profile.orcid}`,
+      profile.researchGate,
+      profile.linkedinUrl,
     ],
   };
 
   return (
     <html lang="en" className={`${bebasNeue.variable} ${montserrat.variable}`}>
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Dr. Manjunatha C" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `if("serviceWorker" in navigator)navigator.serviceWorker.register("/sw.js")`,
+        }} />
       </head>
       <body>{children}</body>
     </html>

@@ -38,6 +38,12 @@ export default function GetInTouch() {
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             Industry Email
           </a>
+          {profile.cvPdf && (
+            <a href={profile.cvPdf} download className="inline-flex items-center gap-2 bg-white/10 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-white/20 transition-colors border border-amber-300 min-h-11">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              CV
+            </a>
+          )}
         </div>
       </div>
     </section>

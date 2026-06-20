@@ -96,6 +96,18 @@ export default function Contact() {
                     Google Scholar
                   </a>
                 )}
+                {profile.researchGate && (
+                  <a href={profile.researchGate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-amber-700 hover:underline">
+                    <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 14.308a9.403 9.403 0 0 0-1.284-1.682c-1.311-1.434-3.182-1.953-4.909-2.022 1.05-1.063 2.367-1.335 3.456-1.784 1.306-.539 2.563-1.565 2.912-2.739.246-.818.182-1.835-.303-2.82-.735-1.498-2.334-2.094-3.871-2.229-1.903-.166-3.825.345-5.72.345-1.348 0-3.048-.206-4.125.345-.472.242-.69.83-.69.943 0 .166.3.207.345.299.184.368.483.483.897.575.529.12 1.242.207 1.563.529.276.276.276.92.276 1.242v12.879c0 1.242-.092 1.472.897 1.702.23.069.437.161.437.391 0 .345-.897.299-1.242.299h-4.37c-.575 0-.989.023-1.104-.207-.276-.483-.184-1.426-.184-2.025 0-5.855.023-11.733.023-17.588 0-.667-.023-1.059.207-1.472.506-.875 1.702-1.012 2.759-1.012h10.855c1.426 0 2.759.184 3.733.943.897.713 1.334 1.793 1.334 2.94 0 3.114-2.069 6.183-5.149 6.999-1.104.299-3.137.483-4.37.345 1.472-1.426 3.137-2.713 3.871-4.646.23-.598.345-1.242.345-1.886 0-2.069-1.426-3.457-3.389-3.595-1.334-.092-2.805.207-4.003.391-.805.115-1.058.667-1.058 1.426v4.049c0 1.012.16 1.426.943 1.426.361 0 1.059-.138 1.334-.345 1.012-.713 1.655-2.575 3.137-2.667.529-.023.989.092 1.334.345.805.506.805 1.518.805 2.254v3.182c0 1.426.575 2.575 1.748 3.251 1.426.805 2.989 1.173 4.599 1.173 2.667 0 5.012-1.173 5.012-3.87-.184-2.575-2.022-3.549-4.049-4.278z"/></svg>
+                    ResearchGate
+                  </a>
+                )}
+                {profile.linkedinUrl && (
+                  <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-amber-700 hover:underline">
+                    <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                  </a>
+                )}
               </div>
             </div>
             <div>
@@ -131,7 +143,38 @@ export default function Contact() {
                   Actively seeking strategic collaborations with industry leaders, R&D organizations, and investors in energy storage, hydrogen technologies, advanced materials, sensors, and nanotechnology.
                 </p>
               </div>
+              <div className="mt-6 flex flex-col gap-3">
+                <h3 className="font-semibold text-stone-900">Downloads</h3>
+                {profile.cvPdf && (
+                  <a href={profile.cvPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-amber-700 hover:underline border border-amber-200 hover:border-amber-400 rounded-lg px-4 py-3 transition-colors min-h-11">
+                    <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Download CV (PDF)
+                  </a>
+                )}
+                {profile.industryPdf && (
+                  <a href={profile.industryPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-amber-700 hover:underline border border-amber-200 hover:border-amber-400 rounded-lg px-4 py-3 transition-colors min-h-11">
+                    <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Download Industry Profile (PDF)
+                  </a>
+                )}
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <div className="bg-white rounded-xl p-6 md:p-8 border border-stone-200 shadow-sm shadow-stone-200/50">
+            <h3 className="font-semibold text-stone-900 mb-4 text-lg">Send a Message</h3>
+            <form action={`mailto:${profile.email}`} method="GET" encType="text/plain" className="grid sm:grid-cols-2 gap-4">
+              <input type="text" name="subject" placeholder="Subject" required className="w-full px-4 py-3 rounded-lg border border-stone-200 text-sm focus:outline-none focus:border-amber-400 min-h-11" />
+              <input type="text" name="cc" placeholder="Your email (optional)" className="w-full px-4 py-3 rounded-lg border border-stone-200 text-sm focus:outline-none focus:border-amber-400 min-h-11" />
+              <textarea name="body" placeholder="Your message..." rows={4} required className="sm:col-span-2 w-full px-4 py-3 rounded-lg border border-stone-200 text-sm focus:outline-none focus:border-amber-400 min-h-[120px]"></textarea>
+              <button type="submit" className="sm:col-span-2 inline-flex items-center justify-center gap-2 bg-amber-700 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-amber-600 transition-colors min-h-11">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Send via Email
+              </button>
+            </form>
+            <p className="text-xs text-stone-400 mt-3">This will open your default email client with the pre-filled message.</p>
           </div>
         </div>
       </div>
