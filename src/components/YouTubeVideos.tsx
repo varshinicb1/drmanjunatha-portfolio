@@ -38,43 +38,32 @@ export default function YouTubeVideos() {
           <p className="text-stone-700 mt-3 max-w-2xl">Lecture series, lab demonstrations, and research explanations from Dr. Manjunatha C.</p>
         </div>
 
-        {/* Player modal */}
-        {playing && (
-          <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setPlaying(null)}>
-            <div className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
-              <button onClick={() => setPlaying(null)} className="absolute top-3 right-3 z-10 w-10 h-10 bg-black/60 rounded-full text-white flex items-center justify-center text-lg hover:bg-black/80">&times;</button>
-              <iframe
-                key={playing}
-                src={`https://www.youtube.com/embed/${playing}?autoplay=1&rel=0`}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                allowFullScreen
-                title="YouTube video player"
-              />
-            </div>
-          </div>
-        )}
-
         <div id="yt-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {videos.map((v) => (
             <div
               key={v.id}
-              className="yt-card group cursor-pointer bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-amber-300 transition-colors"
-              onClick={() => setPlaying(v.id)}
+              className="yt-card bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-amber-300 transition-colors"
             >
-              <div className="relative aspect-video bg-stone-200">
-                <img
-                  src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
-                  alt={v.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <div className="w-14 h-14 bg-amber-600 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg className="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </div>
-                </div>
-                <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">{v.duration}</span>
+              <div className="relative aspect-video bg-black">
+                {playing === v.id ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                    allowFullScreen
+                    title={v.title}
+                  />
+                ) : (
+                  <>
+                    <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} className="w-full h-full object-cover" loading="lazy" />
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                      <button onClick={() => setPlaying(v.id)} className="w-14 h-14 bg-amber-600 hover:bg-amber-500 rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer">
+                        <svg className="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                      </button>
+                    </div>
+                    <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">{v.duration}</span>
+                  </>
+                )}
               </div>
               <div className="p-3">
                 <p className="text-sm text-stone-800 leading-snug line-clamp-2">{v.title}</p>
