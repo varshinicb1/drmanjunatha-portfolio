@@ -42,6 +42,28 @@ export default function AcademicActivities() {
           <h2 className="text-4xl sm:text-5xl md:text-7xl bebas-neue-regular text-stone-900 mt-1">Academic Activities</h2>
         </div>
 
+        {profile.invitedTalks.length > 0 && (
+          <div className="mb-10 p-5 bg-white rounded-2xl border border-amber-200 shadow-sm">
+            <h3 className="text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
+              <svg className="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 21L21 2"/><path d="M10 16l5-5"/><path d="M10 21l3-3"/><path d="M21 10l-3-3"/>
+              </svg>
+              Invited Talks
+            </h3>
+            <div className="flex flex-col sm:flex-row gap-6 items-start">
+              <a href={profile.invitedTalks[0].url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+                <img src={profile.invitedTalks[0].image} alt="Manjunatha C - World Nano 2019 Speaker" className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl object-cover border border-stone-200 shadow-sm" />
+              </a>
+              <div>
+                <span className="text-xs font-semibold tracking-wider uppercase text-amber-700">{profile.invitedTalks[0].role} &middot; {profile.invitedTalks[0].year}</span>
+                <p className="text-base font-semibold text-stone-900 mt-1">{profile.invitedTalks[0].title}</p>
+                <p className="text-sm text-stone-600 mt-0.5">{profile.invitedTalks[0].event}</p>
+                <a href={profile.invitedTalks[0].url} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-amber-700 hover:text-amber-800 font-semibold underline underline-offset-2">View conference listing &rarr;</a>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-8">
           <div>
             <h3 className="text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">

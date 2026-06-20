@@ -578,6 +578,17 @@ export const profile = {
     },
   ],
 
+  invitedTalks: [
+    {
+      year: 2019,
+      title: "Fabrication of Thiol-Functionalised Core Shell Magnetic Iron Oxide Nano-Particles for Hg2+ Ion Removal in Water",
+      event: "World Nanotechnology Conference | Dubai, UAE",
+      role: "Invited Speaker",
+      image: "/world-nano-speaker.jpg",
+      url: "https://worldnanotechnologyconference.com/speaker/manjunatha-c",
+    },
+  ],
+
   internationalConferences: [
     { year: 2012, title: "Morphological Evolution of Cadmium Silicate Nanobelts", event: "ICONSAT-2012, ARCI Hyderabad" },
     { year: 2012, title: "Characterization, luminescence studies of Dy3+ doped CdSiO3 nanophosphor", event: "ICLA-2012, Hyderabad" },
