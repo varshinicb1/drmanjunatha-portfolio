@@ -1,10 +1,11 @@
 # Dr. Manjunatha C — Portfolio Website
 
 ## Project Info
-- **Framework:** Next.js 16 + TypeScript + Tailwind v4
+- **Framework:** Next.js 16 + TypeScript 7.0 RC (Go native) + Tailwind v4
 - **Deployment:** Firebase Hosting (static export)
 - **URL:** https://drmanjunatha-cv-portfolio.web.app
 - **Build:** `npx next build --webpack` (Turbopack unavailable on win32/x64)
+- **TypeScript:** `npx tsc --noEmit` for type checking
 - **Export:** Static files to `out/` directory
 - **GitHub:** https://github.com/varshinicb1/drmanjunatha-portfolio
 
@@ -88,6 +89,7 @@ Wrapped in: Preloader → SmoothScroll → NanoBackground → Navbar → [pillar
 ## Known Issues
 - SWC native binary is corrupted — WASM fallback used automatically
 - Build must use `--webpack` flag (no Turbopack on Windows x64)
+- TypeScript 7.0 RC: Next.js 16.2.9 can't run its type-checking phase with TS 7.0 — `typescript.ignoreBuildErrors: true` set in next.config.ts. Run `npx tsc --noEmit` separately for type checking.
 - Firebase cache headers: no-cache for HTML, 1-year immutable for assets
 - Hard refresh (Ctrl+F5) required after every deploy
 
